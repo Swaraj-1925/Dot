@@ -53,10 +53,10 @@ return {
           enable = true,
           disable = { "python" }, -- Python indentation is handled better by vim
         },
-        context_commentstring = {
-          enable = true,
-          enable_autocmd = false,
-        },
+         comment = {
+    enable = true,
+    enable_autocmd = false,
+  },
       })
       -- Setup autotag after treesitter
       require("nvim-ts-autotag").setup({

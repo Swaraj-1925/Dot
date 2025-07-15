@@ -7,7 +7,7 @@ vim.opt.fileencoding = "utf-8"
 
 -- General Editor Behavior
 vim.opt.title = true
-vim.opt.backup = false
+vim.opt.backup = true
 vim.opt.swapfile = false
 vim.opt.scrolloff = 10
 vim.opt.mouse = ""
