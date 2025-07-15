@@ -9,13 +9,13 @@ return {
 		},
 		keys = {
 			{
-				"<leader>fP",
+				"<leader>ff",
 				function()
 					require("telescope.builtin").find_files({
-						cwd = require("lazy.core.config").options.root,
+						cwd = vim.fn.expand("%:p:h"),
 					})
 				end,
-				desc = "Find Plugin File",
+				desc = "Find File in CWD",
 			},
 			{
 				"<leader>fwd",
