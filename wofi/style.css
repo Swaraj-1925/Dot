@@ -1,0 +1,61 @@
+@define-color background #1a1a1a;
+@define-color highlight #2d2d2d;
+@define-color text #e8e8e8;
+@define-color accent #ffffff;
+@define-color hover #252525;
+@define-color border #333333;
+
+* {
+    all: unset;
+    font-family: "SF Pro Display", "Inter", "Segoe UI", "Roboto", sans-serif;
+    font-size: 14px;
+    background-color: transparent;
+    color: @text;
+}
+
+window {
+    background-color: @background;
+    border-radius: 8px;
+    padding: 8px;
+    border: 1px solid @border;
+}
+
+#input {
+    background-color: @background;
+    border-radius: 6px;
+    padding: 12px 16px;
+    margin: 8px 12px;
+    color: @text;
+    border: 1px solid @border;
+}
+
+#entry {
+    padding: 10px 12px;
+    margin: 2px 4px;
+    border-radius: 4px;
+    background-color: transparent;
+    transition: background-color 0.15s ease;
+}
+
+#entry:hover {
+    background-color: @hover;
+}
+
+#entry:selected {
+    background-color: @highlight;
+}
+
+#entry:selected #text {
+    color: @accent;
+    font-weight: 500;
+}
+
+#text {
+    color: @text;
+}
+
+#scroll, #outer-box, #inner-box {
+    border: none;
+    padding: 0;
+    margin: 0;
+}

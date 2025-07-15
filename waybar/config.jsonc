@@ -1,0 +1,126 @@
+// -*- mode: jsonc -*-
+{
+    "position": "bottom",
+    "height": 30,
+    "spacing": 5,
+    "modules-left": [
+        "hyprland/workspaces",
+        "mpris"
+    ],
+    "modules-center": [
+        "clock"
+    ],
+    "modules-right": [
+        "tray",
+        "backlight",
+        "pulseaudio",
+        "battery",
+        "custom/power"
+    ],
+    "hyprland/workspaces": {
+        "disable-scroll": false,
+        "all-outputs": true,
+        "format": "{icon}",
+        "on-click": "activate",
+        "persistent-workspaces": {
+            "*": [1, 2, 3, 4, 5]
+        },
+	"format-icons": {
+		"1": "󱂬",
+		"2": "",          
+		"3": " ",          
+		"4": " ",
+		"default": "󱂬"
+	}
+    },
+    "custom/power": {
+        "format": " ",
+        "tooltip": false,
+        "on-click": "wlogout"
+    },
+    "tray": {
+        "icon-size": 16,
+        "spacing": 8,
+        "show-passive-items": true,
+        "reverse-direction": true
+    },
+    "bluetooth": {
+        "format": "",
+        "format-disabled": "󰂲",
+        "format-off": "󰂲",
+        "format-on": "",
+        "format-connected": " {num_connections}",
+        "format-connected-battery": " {num_connections}",
+        "tooltip-format": "Bluetooth {status}",
+        "tooltip-format-connected": "Connected devices: {num_connections}\n{device_enumerate}",
+        "tooltip-format-enumerate-connected": "• {device_alias}",
+        "tooltip-format-enumerate-connected-battery": "• {device_alias} ({device_battery_percentage}%)",
+        "on-click": "blueman-manager"
+    },
+    "clock": {
+        "format": "{:%a, %d %b %Y | %I:%M %p}",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "calendar": {
+            "mode": "year",
+            "mode-mon-col": 3,
+            "weeks-pos": "right",
+            "on-scroll": 1,
+            "format": {
+                "months": "<span color='#ffead3'><b>{}</b></span>",
+                "days": "<span color='#ecc6d9'>{}</span>",
+                "weeks": "<span color='#99ffdd'><b>W{}</b></span>",
+                "weekdays": "<span color='#ffcc66'><b>{}</b></span>",
+                "today": "<span color='#ff6699'><b><u>{}</u></b></span>"
+            }
+        }
+    },
+    "battery": {
+        "interval": 60,
+        "states": {
+            "good": 95,
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{capacity}% {icon}",
+        "format-charging": "{capacity}% 󰂄",
+        "format-plugged": "{capacity}% 󰂄",
+        "format-alt": "{time} {icon}",
+        "format-icons": ["󰁻", "󰁼", "󰁾", "󰂀", "󰂂", "󰁹"],
+        "tooltip-format": "{timeTo}, {power}W"
+    },
+    "pulseaudio": {
+        "scroll-step": 5,
+        "format": "{icon} {volume}%",
+        "format-bluetooth": " {icon} {volume}%",
+        "format-bluetooth-muted": "  {icon}",
+        "format-muted": " {icon}",
+        "format-icons": {
+            "default": ["", "", ""]
+        },
+        "on-click": "pavucontrol",
+        "on-click-right": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+        "max-volume": 100
+    },
+    "mpris": {
+        "format": "{player_icon} {title} - {artist}",
+        "format-paused": " {title} - {artist}",
+        "format-stopped": "",
+        "on-click": "playerctl play-pause",
+        "on-click-right": "playerctl next",
+        "on-click-middle": "playerctl previous",
+        "on-scroll-up": "playerctl volume 0.1+",
+        "on-scroll-down": "playerctl volume 0.1-",
+        "max-length": 35,
+        "tooltip-format": "{player}: {title} - {artist}\nAlbum: {album}"
+    },
+    "backlight": {
+        "device": "intel_backlight",
+        "interval": 2,
+        "format": "{icon} {percent}%",
+        "format-icons": ["󰃞 ", "󰃟 ", "󰃠 "],
+        "scroll-step": 5,
+        "on-scroll-up": "brightnessctl set +5%",
+        "on-scroll-down": "brightnessctl set 5%-",
+        "tooltip-format": "Brightness: {percent}%"
+    }
+}

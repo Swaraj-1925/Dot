@@ -1,0 +1,180 @@
+* {
+    font-family: "SF Pro Display", "Inter", "Segoe UI", "Roboto", sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    border: none;
+    margin: 0;
+    padding: 0;
+    min-height: 0;
+    background: transparent;
+}
+
+#waybar {
+    background: transparent;
+    color: #e8e8e8;
+}
+
+/* ==== SHARED MODULE STYLES ==== */
+#workspaces, #clock, #tray, #pulseaudio, #custom-bluetooth, #battery, #custom-power, #mpris, #custom-brightness, #backlight {
+    background-color: #1a1a1a;
+    border-radius: 8px;
+    padding: 6px 12px;
+    margin: 4px 6px;
+    color: #e8e8e8;
+    border: 1px solid #333333;
+}
+
+/* ==== WORKSPACES ==== */
+#workspaces {
+    padding: 4px 8px;
+}
+
+#workspaces button {
+    padding: 6px 10px;
+    margin: 0 2px;
+    font-size: 20px;
+    color: #999999;
+    background: transparent;
+    border-radius: 6px;
+    border: none;
+}
+
+#workspaces button.active {
+    color: #ffffff;
+    background-color: #2d2d2d;
+    font-weight: 500;
+}
+
+#workspaces button:hover {
+    background-color: #252525;
+    color: #cccccc;
+}
+
+/* ==== HOVER EFFECTS ==== */
+#clock:hover, #tray:hover, #pulseaudio:hover, #custom-bluetooth:hover, 
+#battery:hover, #custom-power:hover, #mpris:hover, #custom-brightness:hover, 
+#backlight:hover {
+    background-color: #252525;
+    border-color: #444444;
+}
+
+/* ==== BATTERY STATUS COLORS ==== */
+#battery.warning {
+    color: #f39c12;
+}
+
+#battery.critical {
+    color: #e74c3c;
+}
+
+#battery.charging {
+    color: #2ecc71;
+}
+
+/* ==== PULSEAUDIO STATUS ==== */
+#pulseaudio.muted {
+    color: #95a5a6;
+}
+
+/* ==== NETWORK MODULE ==== */
+#network {
+    background-color: #1a1a1a;
+    border-radius: 8px;
+    padding: 6px 12px;
+    margin: 4px 6px;
+    color: #e8e8e8;
+    border: 1px solid #333333;
+}
+
+#network:hover {
+    background-color: #252525;
+    border-color: #444444;
+}
+
+#network.disconnected {
+    color: #e74c3c;
+}
+
+/* ==== CUSTOM MODULES ==== */
+#custom-weather, #custom-updates, #custom-media {
+    background-color: #1a1a1a;
+    border-radius: 8px;
+    padding: 6px 12px;
+    margin: 4px 6px;
+    color: #e8e8e8;
+    border: 1px solid #333333;
+}
+
+#custom-weather:hover, #custom-updates:hover, #custom-media:hover {
+    background-color: #252525;
+    border-color: #444444;
+}
+
+/* ==== TRAY SPECIFIC ==== */
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+}
+
+/* ==== MPRIS SPECIFIC ==== */
+#mpris.paused {
+    color: #95a5a6;
+}
+
+#mpris.stopped {
+    color: #7f8c8d;
+}
+
+/* ==== TOOLTIPS & MENUS ==== */
+tooltip {
+    background-color: #1a1a1a;
+    color: #e8e8e8;
+    border-radius: 8px;
+    padding: 8px 12px;
+    border: 1px solid #333333;
+    font-weight: 400;
+}
+
+/* ==== TRAY MENUS & POPUPS ==== */
+menu, .menu {
+    background-color: #1a1a1a;
+    color: #e8e8e8;
+    border-radius: 8px;
+    padding: 6px;
+    border: 1px solid #333333;
+}
+
+menu menuitem, .menu menuitem {
+    padding: 8px 12px;
+    border-radius: 4px;
+    background-color: transparent;
+    color: #e8e8e8;
+}
+
+menu menuitem:hover, .menu menuitem:hover {
+    background-color: #2d2d2d;
+    color: #ffffff;
+}
+
+menu separator, .menu separator {
+    background-color: #333333;
+    margin: 4px 0;
+}
+
+/* ==== BLUETOOTH & NETWORK MENUS ==== */
+.bluetooth-menu, .network-menu, .audio-menu {
+    background-color: #1a1a1a;
+    color: #e8e8e8;
+    border-radius: 8px;
+    padding: 8px;
+    border: 1px solid #333333;
+}
+
+.bluetooth-menu menuitem:hover, .network-menu menuitem:hover, .audio-menu menuitem:hover {
+    background-color: #2d2d2d;
+    color: #ffffff;
+    border-radius: 4px;
+}
