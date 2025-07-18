@@ -10,7 +10,7 @@ return {
       use_nvim_cmp_as_default = true,
       nerd_font_variant = "mono",
     },
-    
+
     completion = {
       accept = {
         auto_brackets = {
@@ -27,7 +27,7 @@ return {
         auto_show_delay_ms = 200,
       },
     },
-    
+
     keymap = {
       preset = "default",
       ["<C-space>"] = { "show", "show_documentation", "hide_documentation" },
@@ -42,8 +42,7 @@ return {
       ["<C-u>"] = { "scroll_documentation_up", "fallback" },
       ["<C-d>"] = { "scroll_documentation_down", "fallback" },
     },
-    
-    sources = {
+     sources = {
       default = { "lsp", "path", "snippets", "buffer" },
       providers = {
         buffer = {
@@ -61,7 +60,7 @@ return {
         },
       },
     },
-    
+
     signature = {
       enabled = true,
     },
