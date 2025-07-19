@@ -76,3 +76,4 @@ vim.g.deprecation_warnings = true
 
 -- FZF Integration
 vim.env.FZF_DEFAULT_OPTS = ""
+

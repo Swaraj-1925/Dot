@@ -1,5 +1,17 @@
 return {
 		"nvim-telescope/telescope.nvim",
+
+pickers = {
+  find_files = {
+    previewer = false,
+  },
+  buffers = {
+    previewer = false,
+  },
+  diagnostics = {
+    previewer = false,
+  },
+},
 		dependencies = {
 			{
 				"nvim-telescope/telescope-fzf-native.nvim",

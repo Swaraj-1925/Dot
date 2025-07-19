@@ -20,19 +20,15 @@ return {
     -- ensure LSP servers
     require("mason-lspconfig").setup({
       ensure_installed = {
-        "lua-language-server",
-        "bash-language-server",
-        "clangd",
-        "cmake",
-        "dockerls",
-        "json-lsp",
-        "marksman",
-        "pyright",
-        "shellcheck",
-        "shfmt",
-        "stylua",
-        "yamlls",
-        "lua-language-server",
+  "lua_ls",
+  "bashls",
+  "clangd",
+  "cmake",
+  "dockerls",
+  "jsonls",
+  "marksman",
+  "pyright",
+  "yamlls",
       },
       automatic_installation = true,
     })
@@ -49,7 +45,7 @@ return {
         "shfmt",
         "stylua",
       },
-      auto_update = false, 
+      auto_update = false,
       run_on_start = false,
     })
   end,
