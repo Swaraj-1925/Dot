@@ -8,7 +8,7 @@ return {
   config = function()
     local lspconfig = require("lspconfig")
     local keymap = vim.keymap
-    
+
     -- Get capabilities from blink.cmp instead of cmp-nvim-lsp
     local capabilities = vim.lsp.protocol.make_client_capabilities()
     -- Check if blink.cmp is available and get its capabilities
@@ -16,13 +16,27 @@ return {
     if ok then
       capabilities = blink.get_lsp_capabilities(capabilities)
     end
-    
     -- diagnostic signs
-    local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }
+    local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }
     for type, icon in pairs(signs) do
       vim.fn.sign_define("DiagnosticSign" .. type, { text = icon, texthl = "DiagnosticSign" .. type })
     end
-    
+vim.diagnostic.config({
+  virtual_text = {
+    -- only show WARN and ERROR inline
+    severity = { min = vim.diagnostic.severity.WARN },
+  },
+  signs = {
+    -- only place gutter signs for WARN and ERROR
+    severity = { min = vim.diagnostic.severity.WARN },
+  },
+  underline = {
+    -- only underline WARN and ERROR
+    severity = { min = vim.diagnostic.severity.WARN },
+  },
+  update_in_insert = false,
+  severity_sort = true,
+})
     -- on_attach for keymaps
     local on_attach = function(client, bufnr)
       local bufopts = { buffer = bufnr, silent = true }
@@ -41,10 +55,10 @@ return {
       keymap.set("n", "K", vim.lsp.buf.hover, bufopts)
       keymap.set("n", "<leader>rs", ":LspRestart<CR>", bufopts)
     end
-    
+
     -- Track which servers have been setup to avoid duplicates
     local setup_servers = {}
-    
+
     -- Helper function to setup server if not already done
     local function setup_server(server_name)
       if not setup_servers[server_name] then
@@ -55,7 +69,7 @@ return {
         setup_servers[server_name] = true
       end
     end
-    
+
     -- Filetype to LSP server mapping
     local filetype_to_server = {
       python = "pyright",
@@ -72,7 +86,7 @@ return {
       markdown = "marksman",
       dockerfile = "dockerls",
     }
-    
+
     -- Lazy-load LSP servers based on filetype
     local lsp_autocmd = vim.api.nvim_create_autocmd
     lsp_autocmd("FileType", {
@@ -85,7 +99,7 @@ return {
         end
       end,
     })
-    
+
     -- Optional: Setup some essential servers immediately (remove if you want full lazy loading)
     -- setup_server("lua_ls") -- For your nvim config files
   end,
