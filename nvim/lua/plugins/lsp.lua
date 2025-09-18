@@ -100,7 +100,5 @@ vim.diagnostic.config({
       end,
     })
 
-    -- Optional: Setup some essential servers immediately (remove if you want full lazy loading)
-    -- setup_server("lua_ls") -- For your nvim config files
   end,
 }

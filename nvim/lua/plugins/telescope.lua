@@ -150,7 +150,7 @@ pickers = {
 				file_browser = {
 					theme = "dropdown",
 					-- disables netrw and use telescope-file-browser in its place
-					hijack_netrw = true,
+					hijack_netrw = false,
 					mappings = {
 						-- your custom insert mode mappings
 						["n"] = {
