@@ -6,7 +6,8 @@ return {
       -- Don't pack all testcases into one file
       testcases_use_single_file = false,
       -- Expand your shell's $HOME correctly:
-      template_file              = "$(HOME)/cp/templates/cp_template.cpp",
+      template_file = vim.fn.expand("~/cp/templates/cp_template.cpp"),
+      evaluate_template_modifiers = true,
       received_problems_path = function(task, file_extension)
         -- Extract problem ID from URL (e.g., "2120_A" from "https://codeforces.com/problemset/problem/2120/A")
         local problem_id = ""
@@ -26,13 +27,27 @@ return {
       end
     }
   local map = vim.keymap.set
-  local opts = { silent = true, noremap = true, desc = 'Competitest' }
-  map('n', '<leader>cg', '<cmd>CompetiTest receive problem<CR>', opts)
-  map('n', '<leader>cr', '<cmd>CompetiTest run<CR>', opts)
-  map('n', '<leader>cR', '<cmd>CompetiTest run_no_compile<CR>', opts)
-  map('n', '<leader>cu', '<cmd>CompetiTest show_ui<CR>', opts)
-  map('n', '<leader>ca', '<cmd>CompetiTest add_testcase<CR>', opts)
-  map('n', '<leader>ce', '<cmd>CompetiTest edit_testcase<CR>', opts)
-  map('n', '<leader>cd', '<cmd>CompetiTest delete_testcase<CR>', opts)
+  local opts = { silent = true, noremap = true}
+    map('n', '<leader>cg', '<cmd>CompetiTest receive problem<CR>',
+      { desc = 'Download problem from contest'})
+
+    map('n', '<leader>cr', '<cmd>CompetiTest run<CR>',
+      { desc = 'Compile & run solution with test cases'})
+
+    map('n', '<leader>cR', '<cmd>CompetiTest run_no_compile<CR>',
+      { desc = 'Run solution without compiling'})
+
+    map('n', '<leader>cu', '<cmd>CompetiTest show_ui<CR>',
+      { desc = 'Open CompetiTest UI menu'})
+
+    map('n', '<leader>ca', '<cmd>CompetiTest add_testcase<CR>',
+      { desc = 'Add a new testcase' })
+
+    map('n', '<leader>ce', '<cmd>CompetiTest edit_testcase<CR>',
+      { desc = 'Edit an existing testcase'})
+
+    map('n', '<leader>cd', '<cmd>CompetiTest delete_testcase<CR>',
+      { desc = 'Delete a testcase'})
+
   end
 }
